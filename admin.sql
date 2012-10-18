@@ -58,5 +58,5 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 LOCK TABLES `users` WRITE;
-INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `logins`, `last_login`) VALUES (1,'Henrique Boaventura','henrique.boaventura@3yz.com','henrique.boaventura','7f3cafc3b31f4301fe78d56de9173b5a5ed97673bc2e3d4f09bec9c1c7d11156',6,1345829176),(2,'Administrador','admin@3yz.com','admin','9ff0e31c2cbf0637281c850f06c632ed0c20afd6991f6e486e3c534148b13310',0,NULL);
+INSERT INTO `users` (`id`, `name`, `email`, `username`, `password`, `logins`, `last_login`) VALUES (1,'Administrador','admin@3yz.com','admin','7f3cafc3b31f4301fe78d56de9173b5a5ed97673bc2e3d4f09bec9c1c7d11156',6,1345829176),(2,'Administrador','admin@3yz.com','admin','9ff0e31c2cbf0637281c850f06c632ed0c20afd6991f6e486e3c534148b13310',0,NULL);
 UNLOCK TABLES;
