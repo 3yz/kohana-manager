@@ -47,12 +47,14 @@ MANAGER = {
       });
 
       //delete selecteds
-      $("button.delete[type='submit']").click(function(){
-        if(confirm('Tem certeza que deseja excluir os registros selecionados?')) 
-        {
+      //delete selecteds
+      $("button.delete[type='submit']").click(function(e){
+        if(confirm('Tem certeza que deseja excluir os registros selecionados?')) {
           $("#bulk_action input[name='action']").val('delete');
           $("#bulk_action").submit();
         }
+
+        return e.preventDefault();
       });
 
       //select all

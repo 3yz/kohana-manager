@@ -3,6 +3,7 @@
 }
 .actions a{
   /*text-indent: -1999em;*/
+  margin-right: 5px;
 }
 .sessions div#main > div > div{
   margin-top:120px;

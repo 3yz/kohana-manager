@@ -41,9 +41,9 @@
               <?php 
                 echo Html::anchor(
                   'manager/users/delete/'.$user->id, 
-                  '<i class="icon-remove"></i>', 
+                  '<i class="icon-remove icon-white"></i>',
                   array(
-                    'class' => 'delete btn btn-small',
+                    'class' => 'btn btn-small btn-danger',
                     'title' => 'Excluir'
                   )
                 ) 

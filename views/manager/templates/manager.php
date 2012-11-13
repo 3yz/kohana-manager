@@ -40,7 +40,7 @@
           <?php endforeach; ?>
         </ul>
         <ul class="nav pull-right">
-          <li><?php echo Html::anchor('manager/logout', 'Sair') ?></li>
+          <li><?php echo Html::anchor('manager/logout', '<i class="icon-off"></i>', array('title' => 'Sair')) ?></li>
         </ul>
         <?php endif; ?>
       </div>

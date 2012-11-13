@@ -5,13 +5,6 @@ return array
   'title' => 'Manager',
   'menu'  => array(
     array(
-      'title' => 'Dashboard',
-      'controller' => 'dashboard',
-      'url'   => 'manager/dashboard',
-      'itens' => array(),
-      'roles' => array()
-    ),
-    array(
       'title' => 'Usuários',
       'controller' => 'users',
       'url'   => 'manager/users',
