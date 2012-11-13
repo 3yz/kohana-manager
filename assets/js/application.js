@@ -41,12 +41,17 @@ MANAGER = {
         document.location.href = $(this).parent().attr('data-link');
       });
 
+      $('#reset').on('click', function(){
+        $(this).parent().parent().parent().find('input:text').each(function(){
+          $(this).removeAttr('value');
+        })
+      });
+
       //delete links
       $('a.delete').click(function(){
         return confirm('Tem certeza que deseja excluir?');
       });
 
-      //delete selecteds
       //delete selecteds
       $("button.delete[type='submit']").click(function(e){
         if(confirm('Tem certeza que deseja excluir os registros selecionados?')) {
@@ -70,91 +75,46 @@ MANAGER = {
       });
       
       //textarea
-      $('textarea.richtext').wysiwyg({
-        controls: {
-          html: { visible: true }
-        }
-      });
-    }
-  },
-  news: {
-    edit: function(){
-      $('.add_images').click(function(e){
-        var input = $(this).prev();
+      $('textarea.richtext').tinymce({
+          // Location of TinyMCE script
+          script_url : $('base').attr('href') + 'assets/js/tiny_mce/tiny_mce.js',
+          document_base_url : $('base').attr('href'),
+          // relative_urls : false,
+          // remove_script_host : false,
+          // remember_last_path : false,
 
-        var last = $('#images input').last().attr('name').split('_');
+          wwwroot : $('base').attr('href') + '/llzzlz',
 
-        $('#images').append('<br/>');
-        $('#images').append($('<input/>').attr('type', 'file').attr('name', 'image_' + (parseInt(last[1]) + 1)));
+          // General options
+          theme : "advanced",
+          plugins : "imagemanager,pagebreak,style,table,advhr,advimage,advlink,media,searchreplace,paste,directionality,nonbreaking",
 
-        return e.preventDefault();
+          // Theme options
+          theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,blockquote,|,undo,redo,|,link,unlink,image,insertimage,code",
+          theme_advanced_buttons2 : "",
+          theme_advanced_buttons3 : "",
+          theme_advanced_buttons4 : "",
+          theme_advanced_toolbar_location : "top",
+          theme_advanced_toolbar_align : "left",
+          theme_advanced_statusbar_location : false,
+          theme_advanced_resizing : true,
 
-      });
+          height:400,
+          width:'100%',
 
-      $('#images a').click(function(e){
-        $.post(this.href, function(data) {
-          $('#image_' + data['id']).remove();
+          // Example content CSS (should be your site CSS)
+          // content_css : "css/content.css",
+
+          // Drop lists for link/image/media/template dialogs
+          // template_external_list_url : "lists/template_list.js",
+          // external_link_list_url : "lists/link_list.js",
+          // external_image_list_url : "lists/image_list.js",
+          // media_external_list_url : "lists/media_list.js",
+
         });
 
-        e.preventDefault();
-      }); 
-
-    },
-    new: function(){
-      $('.add_images').click(function(e){
-        var input = $(this).prev();
-
-        var last = $('#images input').last().attr('name').split('_');
-
-        $('#images').append('<br/>');
-        $('#images').append($('<input/>').attr('type', 'file').attr('name', 'image_' + (parseInt(last[1]) + 1)));
-
-        return e.preventDefault();
-
-      });
-    }
-  },
-  banners: {
-    form: function(){
-
-      $('form').submit(function(){
-        if ($('#banner_link').val() && $('#banner_category_id').val()) {
-          alert('Você pode escolher apenas um link para o banner');
-          return false;
-        }
-      });
-
-    },
-    new: function(){
-      MANAGER.banners.form();
-    }
-  },
-  quizusers: {
-    index: function(){
-      $('table.grid .is_active a').click(function(){
-        var $link = $(this);
-
-        $.ajax({
-          url: $link.attr('href'),
-          dataType: 'json',
-          beforeSend: function(data){
-            $link.closest('td').addClass('loading');
-            console.log(data);
-          },
-          error: function(data){
-            $link.closest('td').removeClass('loading');
-            console.log(data)
-          },
-          success: function(data){
-            $link.closest('td').removeClass('loading');
-            console.log(data);
-          }
-        });
-      });
     }
   }
-
-
 }
 
 

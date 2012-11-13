@@ -37,10 +37,7 @@ class Controller_Manager_Application extends Controller_Template {
     	$scripts = array(
     		'assets/js/jquery-1.7.2.min.js',
     		'assets/js/jquery-ui-1.8.16.min.js',
-        'assets/js/jquery.wysiwyg.js',
-        'assets/js/wysiwyg.link.js',
-        'assets/js/wysiwyg.table.js',
-        'assets/js/wysiwyg.image.js',
+        'assets/js/tiny_mce/jquery.tinymce.js',
         'assets/js/bootstrap.min.js',
     		'assets/js/plugins.js',
     		'assets/js/application.js'
